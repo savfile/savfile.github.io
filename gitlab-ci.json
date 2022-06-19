@@ -1,1 +1,0 @@
-{"image":"alpine:latest","pages":{"stage":"deploy","script":["echo 'silly Gitlab'"],"artifacts":{"paths":["/"]},"only":["main"]}}
