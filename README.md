@@ -1,6 +1,6 @@
 # savfile 的个人博客
 ## 你可从访问我的博客
-如果网址后面**没有绿色的勾**或有`?`的，可能无法访问。
+如果网址后面**没有绿色对勾**，则该网址可能无法访问。
 ### Github Pages
 https://savfile.github.io ![?](https://savfile.github.io/ok.svg)
 
