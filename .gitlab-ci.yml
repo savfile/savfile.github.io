@@ -1,0 +1,10 @@
+image: alpine:latest
+
+pages:
+  script:
+  - echo 'Hexo 事傻子'
+  artifacts:
+    paths:
+    - /
+  only:
+  - main
