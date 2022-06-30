@@ -7,9 +7,10 @@
 - Github Pages
     - https://savfile.github.io ![?](https://savfile.github.io/ok.svg)
 
+<!--
 - Gitlab Pages
     - https://savfile.gitlab.io ![?](https://savfile.gitlab.io/ok.svg)
-
+-->
 
 - Vercel
     - https://savfile.vercel.app ![?](https://savfile.vercel.app/ok.svg)
