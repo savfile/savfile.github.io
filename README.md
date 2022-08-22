@@ -18,16 +18,6 @@
 - Netlify
     - https://savfile.netlify.app ![?](https://savfile.netlify.app/ok.svg)
 
-<!--
-- Bitbucket Cloud
-    - https://savfile.bitbucket.io ![?](https://savfile.bitbucket.io/ok.svg)
--->
-
 -  Cloudflare Pages
     - https://savfile.pages.dev ![?](https://savfile.pages.dev/ok.svg)
     - https://savfile-blog.pages.dev ![?](https://savfile-blog.pages.dev/ok.svg)
-
-<!--
-- Gitee Pages
-    - https://savfile.gitee.io ![?](https://savfile.gitee.io/ok.svg)
--->
