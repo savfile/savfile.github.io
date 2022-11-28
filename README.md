@@ -1,23 +1,17 @@
 # savfile 的个人博客
 
-## 你可从以下网址访问我的博客
-
-**注意**：如果网址后面**没有绿色对勾**，则该网址可能无法访问。
+## 博客镜像
 
 - Github Pages
-    - https://savfile.github.io ![?](https://savfile.github.io/ok.svg)
-
+    - https://savfile.github.io
 - Gitlab Pages
-    - https://savfile.gitlab.io ![?](https://savfile.gitlab.io/ok.svg)
-
+    - https://savfile.gitlab.io
 - Vercel
-    - https://savfile.vercel.app ![?](https://savfile.vercel.app/ok.svg)
-    - https://blog-savfile.vercel.app ![?](https://blog-savfile.vercel.app/ok.svg)
-    - https://savfile-blog.vercel.app ![?](https://savfile-blog.vercel.app/ok.svg)
-
+    - https://savfile.vercel.app
+    - https://blog-savfile.vercel.app
+    - https://savfile-blog.vercel.app
 - Netlify
-    - https://savfile.netlify.app ![?](https://savfile.netlify.app/ok.svg)
-
+    - https://savfile.netlify.app
 -  Cloudflare Pages
-    - https://savfile.pages.dev ![?](https://savfile.pages.dev/ok.svg)
-    - https://savfile-blog.pages.dev ![?](https://savfile-blog.pages.dev/ok.svg)
+    - https://savfile.pages.dev
+    - https://savfile-blog.pages.dev
