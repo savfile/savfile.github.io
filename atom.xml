@@ -6,7 +6,7 @@
   <link href="https://savfile.github.io/atom.xml" rel="self"/>
   
   <link href="https://savfile.github.io/"/>
-  <updated>2023-06-29T08:45:13.000Z</updated>
+  <updated>2023-12-30T13:32:34.000Z</updated>
   <id>https://savfile.github.io/</id>
   
   <author>
@@ -17,62 +17,33 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>CVE-2023-34312 腾讯 QQ / TIM 本地提权漏洞</title>
-    <link href="https://savfile.github.io/posts/5024c62c.html"/>
-    <id>https://savfile.github.io/posts/5024c62c.html</id>
-    <published>2023-06-29T08:45:13.000Z</published>
-    <updated>2023-06-29T08:45:13.000Z</updated>
+    <title>安卓模拟器安装 Kitsune Magisk 通用教程</title>
+    <link href="https://savfile.github.io/posts/b77e069e.html"/>
+    <id>https://savfile.github.io/posts/b77e069e.html</id>
+    <published>2023-12-30T13:32:34.000Z</published>
+    <updated>2023-12-30T13:32:34.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://github.com/savfile/CVE-2023-34312/blob/master/README.md">English</a></p><p>受影响的软件：</p><ul><li>QQ 9.6.1 ~ 9.7.9 （9.7.10 已修复）</li><li>TIM 3.4.1 ~ 3.4.6</li></ul><p>受影响的组件：</p><ul><li>QQProtect.exe 4.5.0.9424</li><li>QQProtect.exe 4.5.0.9426</li><li>QQProtectEngine.dll 4.5.0.9424</li><li>QQProtectEngine.dll 4.5.0.9426</li></ul><h2 id="1-概要"><a href="#1-概要" class="headerlink" title="1. 概要"></a>1. 概要</h2><p><a href="https://im.qq.com/">腾讯QQ</a> 和 <a href="https://tim.qq.com/">TIM</a> 是由深圳市腾讯计算机系统有限公司开发的两款即时通讯软件。它们都有一个<strong>可删除</strong>的组件 <em>QQProtect.exe_，位于 <code>%ProgramFiles(x86)%\Common Files\Tencent\QQProtect\bin</code>。_QQProtect.exe</em> 被安装为一个名为 <em>QPCore</em> 的 Windows 服务，并在系统启动时自动以 <code>NT Authority\SYSTEM</code> 账户运行。组件 <em>QQProtect.exe</em> 及其依赖 DLL <em>QQProtectEngine.dll</em> 都存在一个任意地址<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="原文为：arbitrary address。">[1]</span></a></sup>写入漏洞。低权限的攻击者可以通过结合这两个漏洞在 <em>QQProtect.exe</em> 进程中加载恶意 DLL，并获得带有 <code>NT Authority\SYSTEM</code> 权限的外壳。</p><h2 id="2-漏洞"><a href="#2-漏洞" class="headerlink" title="2. 漏洞"></a>2. 漏洞</h2><p>第一个漏洞是位于 <code>QQProtect.exe+0x40c9f8</code> 的代码：</p><p><img src="/img/image0.png"></p><p>其中 <code>a2</code> 是一个可以被攻击者控制的指针，<code>dword_41a740</code> 是一个全局变量，其值为 <code>0x00000001</code>，所以攻击者可以在任何地址写入值 <code>DWORD(1)</code>。</p><p>第二个漏洞是位于 <code>QQProtectEngine.dll+0x3B4F6</code> 的代码：</p><p><img src="/img/image1.png"></p><p>其中 <code>v3</code> 是一个可以被攻击者控制的指针，所以攻击者可以在任何给定的地址 <code>ptr</code> 上写入 <code>std::bit_cast&lt;DWORD&gt;(ptr) + 4</code> 的值<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="原文为：So an attacker can write the value `std::bit_cast(ptr) + 4` at any given address `ptr`。">[2]</span></a></sup>。</p><p>由于 <code>QQProtect.exe</code> 没有 ASLR 保护，攻击者可以篡改驻留在 <code>QQProtect.exe</code> 中的函数指针，并使用 ROP 链轻松执行任意代码。</p><h2 id="3-概念证明"><a href="#3-概念证明" class="headerlink" title="3. 概念证明"></a>3. 概念证明</h2><p>poc 代码使用 Rust 语言编写，你需要用 <code>i686-pc-windows-msvc</code> 工具链来编译。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd poc<br>cargo +stable-i686-pc-windows-msvc build --release --config &quot;build.rustflags = [\&quot;-C\&quot;, \&quot;target-feature=+crt-static\&quot;]&quot;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">编译失败使用下面这个命令</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">cargo +stable-i686-pc-windows-msvc build --release</span><br></code></pre></td></tr></table></figure><p>你会得到两个 DLL：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">target\release\tinyxml.dll<br>target\release\evil.dll<br></code></pre></td></tr></table></figure><p>或从 <a href="https://github.com/savfile/CVE-2023-34312/releases/tag/v0.0.0-alpha">这里</a> 下载已编译好的版本。</p><p>然后把上面的两个 DLL 和 <code>%ProgramFiles(x86)%\Common Files\Tencent\QQProtect\bin\QQProtect.exe</code> 一起放在一个文件夹里。</p><p>最后用一条命令获得带有 <code>NT Authority\SYSTEM</code> 权限的外壳：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">QQProtect.exe &lt;PATH TO evil.dll&gt;<br></code></pre></td></tr></table></figure><h2 id="4-演示"><a href="#4-演示" class="headerlink" title="4. 演示"></a>4. 演示</h2><p><img src="/img/demonstration.gif" alt="demonstration.gif"></p><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>原文为：arbitrary address。<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>原文为：So an attacker can write the value <code>std::bit_cast&lt;DWORD&gt;(ptr) + 4</code> at any given address <code>ptr</code>。<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/savfile/CVE-2023-34312/blob/master/README.md&quot;&gt;English&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;受影响的软件：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;QQ 9.6.1 ~ 9.7.9 （9.7.1</summary>
-      
-    
-    
-    
-    <category term="技术" scheme="https://savfile.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="漏洞" scheme="https://savfile.github.io/tags/%E6%BC%8F%E6%B4%9E/"/>
-    
-    <category term="漏洞复现" scheme="https://savfile.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
-    
-    <category term="CVE" scheme="https://savfile.github.io/tags/CVE/"/>
-    
-    <category term="QQ" scheme="https://savfile.github.io/tags/QQ/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>原神怎么你了？</title>
-    <link href="https://savfile.github.io/posts/e278d35f.html"/>
-    <id>https://savfile.github.io/posts/e278d35f.html</id>
-    <published>2023-01-19T11:46:13.000Z</published>
-    <updated>2023-01-19T11:46:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>一个哔哩哔哩弹幕网的弹幕屏蔽词配置文件，用于屏蔽 <del>原批</del> 有关原神的弹幕。</p><p>由于哔哩哔哩的 <del>原批</del> 原神玩家数量激增，在弹幕中 <a href="https://zh.moegirl.org.cn/KY" title="萌娘百科：KY">KY</a> 的人也越来越多，为此将我平时使用的屏蔽词分享出来。</p><p><em><strong>可能有严重误伤，请酌情使用</strong>。</em></p><p><strong>下载</strong>：<a href="https://github.com/savfile/genshin-how-you/blob/main/blacklist.xml">Github</a> <a href="https://raw.fastgit.org/savfile/genshin-how-you/main/blacklist.xml">FastGit</a> <a href="https://cdn.staticaly.com/gh/savfile/genshin-how-you/main/blacklist.xml">Statically</a></p>]]></content>
+    <content type="html"><![CDATA[<div class="note note-danger">            <p><img src="/img/warning.svg"><br>Kitsune Magisk <strong>不是</strong>官方版本的Magisk，不保证安全性，请自行评估风险后再使用。前往 <a href="https://github.com/topjohnwu/Magisk">topjohnwu&#x2F;Magisk</a> 获取官方版本的 Magisk。</p>          </div><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul><li>安卓模拟器<ul><li>不支持的模拟器<ul><li>夜神模拟器安卓12测试版 V7.0.5.9050（掉 Root）</li><li>BlueStacks<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="BlueStacks 使用另一种方式安装，参见 https://huskydg.github.io/magisk-files/main.html#step-by-step-instructions-for-installing-magisk-on-bluestacks">[1]</span></a></sup></li></ul></li><li>支持的模拟器<ul><li>MuMu模拟器12 v3.7.3 (2511)</li></ul></li></ul></li><li><a href="https://github.com/HuskyDG/magisk-files/releases">Kitsune Magisk</a>（原名 Magisk Delta）</li><li>文件管理器（如<code>MT管理器</code>）</li><li><a href="https://github.com/Dr-TSNG/ZygiskNext/releases">ZygiskNext</a>（可选）</li><li><a href="https://github.com/LSPosed/LSPosed/releases">LSPosed</a></li><li>其它你想刷的模块</li></ul><h2 id="安装（以MuMu模拟器为例）"><a href="#安装（以MuMu模拟器为例）" class="headerlink" title="安装（以MuMu模拟器为例）"></a>安装（以MuMu模拟器为例）</h2><h3 id="安装-Kitsune-Magisk"><a href="#安装-Kitsune-Magisk" class="headerlink" title="安装 Kitsune Magisk"></a>安装 Kitsune Magisk</h3><ol><li>在安卓模拟器的设置中，选择<code>可写系统盘</code>及打开<code>开启手机Root权限</code>，如下图所示，并重启模拟器。</li></ol><p><img src="/img/KitsuneMagiskOnEmu/%E5%8F%AF%E5%86%99%E7%B3%BB%E7%BB%9F%E7%9B%98.png" alt="可写系统盘"></p><p><img src="/img/KitsuneMagiskOnEmu/%E5%BC%80%E5%90%AF%E6%89%8B%E6%9C%BARoot%E6%9D%83%E9%99%90.png" alt="开启 Root 权限"></p><ol start="2"><li><p>安装 Kitsune Magisk 及文件管理器，并授予<strong>永久</strong>超级用户权限。彻底关闭 Kitsune Magisk（如清除后台进程，或重启模拟器）。</p></li><li><p>打开 Kitsune Magisk，点击<code>安装</code>，选择<code>直接安装 (直接修改/system)</code>，点击<code>开始</code>。如下图所示，如果显示 <code>All done!</code>，则表示安装成功。<strong>不要点击<code>重启</code>！</strong></p></li></ol><p><img src="/img/KitsuneMagiskOnEmu/%E7%9B%B4%E6%8E%A5%E4%BF%AE%E6%94%B9_system.png" alt="直接安装 (直接修改/system)"></p><p><img src="/img/KitsuneMagiskOnEmu/%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F.png" alt="All done!"></p><ol start="4"><li><p>打开文件管理器，备份并删除内置 su（<code>/system/bin/su</code>和<code>/system/xbin/su</code>），<strong>不要关闭<code>开启手机Root权限</code>！</strong></p></li><li><p><strong>不要点击<code>重启</code>！</strong>手动重启模拟器。</p></li></ol><h3 id="安装-LSPosed"><a href="#安装-LSPosed" class="headerlink" title="安装 LSPosed"></a>安装 LSPosed</h3><ul><li>打开 Kitsune Magisk，在模块中点击<code>从本地安装</code>，找到并选择 <code>Zygisk-Next-v*-*.*.*-***-release.zip</code>，点击<code>确认</code>。（推荐）<br>或</li><li>打开 Kitsune Magisk，在设置中打开 <code>Zygisk</code>。（MuMu模拟器12<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="MuMu模拟器12使用 ZygiskNext 会导致启动器无限重启，安装第三方启动器无法解决">[2]</span></a></sup>）</li></ul><ol><li><p>在模块中点击<code>从本地安装</code>，找到并选择 <code>LSPosed-v*.*.*-****-zygisk-release.zip</code>，点击<code>确认</code>。</p></li><li><p><strong>不要点击<code>重启</code>！</strong>手动重启模拟器。</p></li><li><p>（<a href="https://github.com/orgs/LSPosed/discussions/2729">#2729</a> 对于 LSPoesd 寄生管理器无法通过通知打开的）通过以下命令打开，或安装 <code>manager.apk</code>。</p></li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">adb shell am start -a android.intent.action.MAIN -c org.lsposed.manager.LAUNCH_MANAGER -n com.android.shell/.BugreportWarningActivity<br></code></pre></td></tr></table></figure><ol start="4"><li>Enjoy!</li></ol><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>BlueStacks 使用另一种方式安装，参见 <a href="https://huskydg.github.io/magisk-files/main.html#step-by-step-instructions-for-installing-magisk-on-bluestacks">https://huskydg.github.io/magisk-files/main.html#step-by-step-instructions-for-installing-magisk-on-bluestacks</a><a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>MuMu模拟器12使用 ZygiskNext 会导致启动器无限重启，安装第三方启动器无法解决<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;一个哔哩哔哩弹幕网的弹幕屏蔽词配置文件，用于屏蔽 &lt;del&gt;原批&lt;/del&gt; 有关原神的弹幕。&lt;/p&gt;
-&lt;p&gt;由于哔哩哔哩的 &lt;del&gt;原批&lt;/del&gt; 原神玩家数量激增，在弹幕中 &lt;a href=&quot;https://zh.moegirl.org.cn/KY&quot; title=&quot;</summary>
+    <summary type="html">&lt;div class=&quot;note note-danger&quot;&gt;
+            &lt;p&gt;&lt;img src=&quot;/img/warning.svg&quot;&gt;&lt;br&gt;Kitsune Magisk &lt;strong&gt;不是&lt;/strong&gt;官方版本的Magisk，不保证安全性，请自行评估风险后再</summary>
       
     
     
     
-    <category term="娱乐" scheme="https://savfile.github.io/categories/%E5%A8%B1%E4%B9%90/"/>
+    <category term="教程" scheme="https://savfile.github.io/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="哔哩哔哩" scheme="https://savfile.github.io/tags/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9/"/>
+    <category term="安卓" scheme="https://savfile.github.io/tags/%E5%AE%89%E5%8D%93/"/>
     
-    <category term="bilibili" scheme="https://savfile.github.io/tags/bilibili/"/>
+    <category term="模拟器" scheme="https://savfile.github.io/tags/%E6%A8%A1%E6%8B%9F%E5%99%A8/"/>
+    
+    <category term="Magisk" scheme="https://savfile.github.io/tags/Magisk/"/>
+    
+    <category term="教程" scheme="https://savfile.github.io/tags/%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   

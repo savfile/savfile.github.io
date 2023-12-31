@@ -16,11 +16,11 @@
   <meta name="author" content="savfile">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一个哔哩哔哩弹幕网的弹幕屏蔽词配置文件，用于屏蔽 原批 有关原神的弹幕。 由于哔哩哔哩的 原批 原神玩家数量激增，在弹幕中 KY 的人也越来越多，为此将我平时使用的屏蔽词分享出来。 可能有严重误伤，请酌情使用。 下载：Github FastGit Statically">
+    <meta name="description" content="Kitsune Magisk 不是官方版本的Magisk，不保证安全性，请自行评估风险后再使用。前往 topjohnwu&amp;#x2F;Magisk 获取官方版本的 Magisk。             准备 安卓模拟器 不支持的模拟器 夜神模拟器安卓12测试版 V7.0.5.9050（掉 Root） BlueStacks[1]   支持的模拟器 MuMu模拟器12 v3.">
   
   
   
-  <title>原神怎么你了？ - 星光之家</title>
+  <title>安卓模拟器安装 Kitsune Magisk 通用教程 - 星光之家</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -58,7 +58,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"savfile.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#39C5BB","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":1},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"savfile.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#39C5BB","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":1},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -71,7 +71,7 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="星光之家" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="星光之家" type="application/atom+xml">
 <link rel="alternate" href="/rss2.xml" title="星光之家" type="application/rss+xml">
 </head>
 
@@ -104,7 +104,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -116,7 +116,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -128,7 +128,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -140,7 +140,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -152,7 +152,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -188,7 +188,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">原神怎么你了？</span>
+            <span id="subtitle">安卓模拟器安装 Kitsune Magisk 通用教程</span>
           
         </div>
 
@@ -204,8 +204,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-01-19 19:46" pubdate>
-          2023年1月19日 晚上
+        <time datetime="2023-12-30 21:32" pubdate>
+          2023年12月30日 晚上
         </time>
       </span>
     
@@ -216,7 +216,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          123 字
+          473 字
         
       </span>
     
@@ -255,17 +255,73 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">原神怎么你了？</h1>
+            <h1 id="seo-header">安卓模拟器安装 Kitsune Magisk 通用教程</h1>
             
             
               <div class="markdown-body">
                 
-                <p>一个哔哩哔哩弹幕网的弹幕屏蔽词配置文件，用于屏蔽 <del>原批</del> 有关原神的弹幕。</p>
-<p>由于哔哩哔哩的 <del>原批</del> 原神玩家数量激增，在弹幕中 <a target="_blank" rel="noopener" href="https://zh.moegirl.org.cn/KY" title="萌娘百科：KY">KY</a> 的人也越来越多，为此将我平时使用的屏蔽词分享出来。</p>
-<p><em><strong>可能有严重误伤，请酌情使用</strong>。</em></p>
-<p><strong>下载</strong>：<a target="_blank" rel="noopener" href="https://github.com/savfile/genshin-how-you/blob/main/blacklist.xml">Github</a> <a target="_blank" rel="noopener" href="https://raw.fastgit.org/savfile/genshin-how-you/main/blacklist.xml">FastGit</a> <a target="_blank" rel="noopener" href="https://cdn.staticaly.com/gh/savfile/genshin-how-you/main/blacklist.xml">Statically</a></p>
+                <div class="note note-danger">
+            <p><img src="/img/warning.svg" srcset="/img/loading.gif" lazyload><br>Kitsune Magisk <strong>不是</strong>官方版本的Magisk，不保证安全性，请自行评估风险后再使用。前往 <a target="_blank" rel="noopener" href="https://github.com/topjohnwu/Magisk">topjohnwu&#x2F;Magisk</a> 获取官方版本的 Magisk。</p>
+          </div>
 
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li>安卓模拟器<ul>
+<li>不支持的模拟器<ul>
+<li>夜神模拟器安卓12测试版 V7.0.5.9050（掉 Root）</li>
+<li>BlueStacks<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="BlueStacks 使用另一种方式安装，参见 https://huskydg.github.io/magisk-files/main.html#step-by-step-instructions-for-installing-magisk-on-bluestacks">[1]</span></a></sup></li>
+</ul>
+</li>
+<li>支持的模拟器<ul>
+<li>MuMu模拟器12 v3.7.3 (2511)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/HuskyDG/magisk-files/releases">Kitsune Magisk</a>（原名 Magisk Delta）</li>
+<li>文件管理器（如<code>MT管理器</code>）</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Dr-TSNG/ZygiskNext/releases">ZygiskNext</a>（可选）</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/LSPosed/LSPosed/releases">LSPosed</a></li>
+<li>其它你想刷的模块</li>
+</ul>
+<h2 id="安装（以MuMu模拟器为例）"><a href="#安装（以MuMu模拟器为例）" class="headerlink" title="安装（以MuMu模拟器为例）"></a>安装（以MuMu模拟器为例）</h2><h3 id="安装-Kitsune-Magisk"><a href="#安装-Kitsune-Magisk" class="headerlink" title="安装 Kitsune Magisk"></a>安装 Kitsune Magisk</h3><ol>
+<li>在安卓模拟器的设置中，选择<code>可写系统盘</code>及打开<code>开启手机Root权限</code>，如下图所示，并重启模拟器。</li>
+</ol>
+<p><img src="/img/KitsuneMagiskOnEmu/%E5%8F%AF%E5%86%99%E7%B3%BB%E7%BB%9F%E7%9B%98.png" srcset="/img/loading.gif" lazyload alt="可写系统盘"></p>
+<p><img src="/img/KitsuneMagiskOnEmu/%E5%BC%80%E5%90%AF%E6%89%8B%E6%9C%BARoot%E6%9D%83%E9%99%90.png" srcset="/img/loading.gif" lazyload alt="开启 Root 权限"></p>
+<ol start="2">
+<li><p>安装 Kitsune Magisk 及文件管理器，并授予<strong>永久</strong>超级用户权限。彻底关闭 Kitsune Magisk（如清除后台进程，或重启模拟器）。</p>
+</li>
+<li><p>打开 Kitsune Magisk，点击<code>安装</code>，选择<code>直接安装 (直接修改/system)</code>，点击<code>开始</code>。如下图所示，如果显示 <code>All done!</code>，则表示安装成功。<strong>不要点击<code>重启</code>！</strong></p>
+</li>
+</ol>
+<p><img src="/img/KitsuneMagiskOnEmu/%E7%9B%B4%E6%8E%A5%E4%BF%AE%E6%94%B9_system.png" srcset="/img/loading.gif" lazyload alt="直接安装 (直接修改/system)"></p>
+<p><img src="/img/KitsuneMagiskOnEmu/%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F.png" srcset="/img/loading.gif" lazyload alt="All done!"></p>
+<ol start="4">
+<li><p>打开文件管理器，备份并删除内置 su（<code>/system/bin/su</code>和<code>/system/xbin/su</code>），<strong>不要关闭<code>开启手机Root权限</code>！</strong></p>
+</li>
+<li><p><strong>不要点击<code>重启</code>！</strong>手动重启模拟器。</p>
+</li>
+</ol>
+<h3 id="安装-LSPosed"><a href="#安装-LSPosed" class="headerlink" title="安装 LSPosed"></a>安装 LSPosed</h3><ul>
+<li>打开 Kitsune Magisk，在模块中点击<code>从本地安装</code>，找到并选择 <code>Zygisk-Next-v*-*.*.*-***-release.zip</code>，点击<code>确认</code>。（推荐）<br>或</li>
+<li>打开 Kitsune Magisk，在设置中打开 <code>Zygisk</code>。（MuMu模拟器12<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="MuMu模拟器12使用 ZygiskNext 会导致启动器无限重启，安装第三方启动器无法解决">[2]</span></a></sup>）</li>
+</ul>
+<ol>
+<li><p>在模块中点击<code>从本地安装</code>，找到并选择 <code>LSPosed-v*.*.*-****-zygisk-release.zip</code>，点击<code>确认</code>。</p>
+</li>
+<li><p><strong>不要点击<code>重启</code>！</strong>手动重启模拟器。</p>
+</li>
+<li><p>（<a target="_blank" rel="noopener" href="https://github.com/orgs/LSPosed/discussions/2729">#2729</a> 对于 LSPoesd 寄生管理器无法通过通知打开的）通过以下命令打开，或安装 <code>manager.apk</code>。</p>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">adb shell am start -a android.intent.action.MAIN -c org.lsposed.manager.LAUNCH_MANAGER -n com.android.shell/.BugreportWarningActivity<br></code></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>Enjoy!</li>
+</ol>
+<section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>BlueStacks 使用另一种方式安装，参见 <a target="_blank" rel="noopener" href="https://huskydg.github.io/magisk-files/main.html#step-by-step-instructions-for-installing-magisk-on-bluestacks">https://huskydg.github.io/magisk-files/main.html#step-by-step-instructions-for-installing-magisk-on-bluestacks</a>
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>MuMu模拟器12使用 ZygiskNext 会导致启动器无限重启，安装第三方启动器无法解决
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
                 
               </div>
             
@@ -283,7 +339,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%A8%B1%E4%B9%90/" class="category-chain-item">娱乐</a>
+  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
   
   
 
@@ -298,9 +354,13 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9/">#哔哩哔哩</a>
+        <a href="/tags/%E5%AE%89%E5%8D%93/" class="print-no-link">#安卓</a>
       
-        <a href="/tags/bilibili/">#bilibili</a>
+        <a href="/tags/%E6%A8%A1%E6%8B%9F%E5%99%A8/" class="print-no-link">#模拟器</a>
+      
+        <a href="/tags/Magisk/" class="print-no-link">#Magisk</a>
+      
+        <a href="/tags/%E6%95%99%E7%A8%8B/" class="print-no-link">#教程</a>
       
     </div>
   
@@ -312,8 +372,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>原神怎么你了？</div>
-      <div>https://savfile.github.io/posts/e278d35f.html</div>
+      <div>安卓模拟器安装 Kitsune Magisk 通用教程</div>
+      <div>https://savfile.github.io/posts/b77e069e.html</div>
     </div>
     <div class="license-meta">
       
@@ -325,7 +385,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年1月19日</div>
+          <div>2023年12月30日</div>
         </div>
       
       
@@ -336,19 +396,19 @@
             
               
               
-                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
                   <span class="hint--top hint--rounded" aria-label="BY - 署名">
                     <i class="iconfont icon-by"></i>
                   </span>
                 </a>
               
-                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
                   <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
                     <i class="iconfont icon-nc"></i>
                   </span>
                 </a>
               
-                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
                   <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
                     <i class="iconfont icon-sa"></i>
                   </span>
@@ -368,12 +428,6 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
-                    
-                      <a href="/posts/5024c62c.html" title="CVE-2023-34312 腾讯 QQ / TIM 本地提权漏洞">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">CVE-2023-34312 腾讯 QQ / TIM 本地提权漏洞</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
                     
                   </article>
                   <article class="post-next col-6">
