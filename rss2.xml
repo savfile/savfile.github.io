@@ -9,8 +9,77 @@
     <atom:link href="https://savfile.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Sat, 30 Dec 2023 13:32:34 GMT</pubDate>
+    <pubDate>Sat, 13 Jul 2024 11:07:49 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>PicoEASE 使用记录</title>
+      <link>https://savfile.github.io/posts/8afec71e.html</link>
+      <guid>https://savfile.github.io/posts/8afec71e.html</guid>
+      <pubDate>Sat, 13 Jul 2024 11:07:49 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;来源&quot;&gt;&lt;a href=&quot;#来源&quot; class=&quot;headerlink&quot; title=&quot;来源&quot;&gt;&lt;/a&gt;来源&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;图片资料&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://tieba.baidu.com/p/9070849344&quot;&gt;百度贴吧</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h2><ul><li>图片资料<ul><li><a href="https://tieba.baidu.com/p/9070849344">百度贴吧</a></li><li><a href="https://discord.com/channels/839749858687844372/1255868467819577395/1256652155314770083">Discord</a></li></ul></li><li>文字资料<ul><li><a href="https://tieba.baidu.com/p/9088017721">百度贴吧</a></li><li><a href="https://archive.ph/sGFn8">archive.today</a></li></ul></li><li>固件<ul><li><a href="https://github.com/Natsuki-Min/PicoEASE/">PicoEASE</a></li><li><a href="https://archive.org/details/PicoEASE">InInternet Archive</a></li></ul></li></ul><h2 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h2><h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><p><img src="/img/uEASE%E6%8E%A5%E7%BA%BF%E5%9B%BE.jpg" alt="uEASE 接线图"></p><p>这个是 uEASE 的接线图，PicoEASE 的接线图如下：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">3V3-&gt;VCC<br>GND-&gt;GND<br>GPIO2-&gt;SDA<br>GPIO3-&gt;SCL<br>GPIO4-&gt;VPP<br></code></pre></td></tr></table></figure><p>注意：VPP 需要 7V 电压，否则无法擦除<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://tieba.baidu.com/p/9063497937">[1]</span></a></sup>。</p><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><blockquote><p>1.购买rp2040以及杜邦线</p><p>2.下载<a href="https://github.com/Natsuki-Min/PicoEASE/releases/download/Latest/picoEase.uf2%EF%BC%88%E4%B8%8B%E4%B8%8D%E4%BA%86%E5%B0%B120%E5%88%86%E9%92%9F%E5%88%B7%E6%96%B0%E4%B8%80%E4%B8%8B%EF%BC%8C2%E4%B8%AA%E5%B0%8F%E6%97%B6%E4%BB%A5%E5%86%85%E4%B8%80%E5%AE%9A%E5%8F%AF%E4%BB%A5%EF%BC%89">https://github.com/Natsuki-Min/PicoEASE/releases/download/Latest/picoEase.uf2（下不了就20分钟刷新一下，2个小时以内一定可以）</a></p><p>3.按住bootsel键并将rp2040插入电脑，这时候你会看到一个u盘，将刚刚下载的文件拖入其中</p><p>4.等一会你会发现电脑上又出现一个u盘，格式化它</p><p>5.在里面创建一个文本文档commands.txt输入以下内容并保存<br>B<br>K 100<br>B<br>H 0 40000 rom.bin</p><p>6.按照往期教程连接计算器和rp2040（建议使用胶带纸，目前平价杜邦线普遍不好焊（md铜包铁，sb商家））</p><p>7.按一下rp2040上的bootsel，等待板子的灯熄灭</p><p>8.拔下rp2040，等待10s，再插入电脑，将u盘里面的rom.bin复制出来</p></blockquote><h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><h3 id="合宙RP2040"><a href="#合宙RP2040" class="headerlink" title="合宙RP2040"></a>合宙RP2040</h3><p>很久之前 9.9 包邮买的，一直没用，今天终于用上了。<br>卡在第 5 步那，不知道为什么没有反应，前面都很顺利，重新编译也不行。</p><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a href="https://tieba.baidu.com/p/9063497937">https://tieba.baidu.com/p/9063497937</a><a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>]]></content:encoded>
+      
+      
+      <category domain="https://savfile.github.io/categories/%E8%AE%B0%E5%BD%95/">记录</category>
+      
+      
+      <category domain="https://savfile.github.io/tags/%E8%AE%A1%E7%AE%97%E5%99%A8/">计算器</category>
+      
+      <category domain="https://savfile.github.io/tags/%E5%8D%A1%E8%A5%BF%E6%AC%A7/">卡西欧</category>
+      
+      <category domain="https://savfile.github.io/tags/RP2040/">RP2040</category>
+      
+      <category domain="https://savfile.github.io/tags/%E8%AE%B0%E5%BD%95/">记录</category>
+      
+      
+      <comments>https://savfile.github.io/posts/8afec71e.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>第一篇使用 Neo Backup 备份应用数据的简体中文教程</title>
+      <link>https://savfile.github.io/posts/4dc1ea66.html</link>
+      <guid>https://savfile.github.io/posts/4dc1ea66.html</guid>
+      <pubDate>Sat, 29 Jun 2024 23:43:09 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;只要我限定词够多，我就是第一😏&lt;/p&gt;
+&lt;p&gt;以下文章仅介绍，未提供教程&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://ss</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>只要我限定词够多，我就是第一😏</p><p>以下文章仅介绍，未提供教程</p><ul><li><a href="https://sspai.com/post/77601">找 Android 应用的好去处：开源应用商店 F-Droid 使用指南</a> （2023年1月9日）</li><li><a href="https://ivonblog.com/posts/magisk-recommended-modules/">2023年Magisk推薦安裝的模組，提升手機效能、擋廣告、自定義主題</a> （2023年9月7日）</li><li><a href="https://blog.csdn.net/gitblog_00008/article/details/139587334">推荐开源项目：Neo Backup - 您的智能应用备份解决方案</a> （甚至 Gitcode，2024年6月11日）</li></ul><p>以下文章为教程，但不是简体中文😉</p><ul><li><a href="https://www.youtube.com/watch?v=5qsFBllFir8">Neo Backup is a Free and Open Source App for Scheduling and Encrypting App &amp; Data Back Ups</a> （2023年6月14日）</li><li><a href="https://ivonblog.com/posts/android-neo-backup/">[Root] Neo Backup教學，完整備份Android手機APP資料</a> （2024年2月14日）</li></ul><h2 id="使用前注意"><a href="#使用前注意" class="headerlink" title="使用前注意"></a>使用前注意</h2><ul><li>理论上 Neo Backup 支持所有应用（包括游戏和系统应用），但是否有效、安全、稳定，与 Neo Backup 开发者以及此教程无关。</li><li>请自行承担使用 Neo Backup 带来的风险，包括但不限于数据丢失、系统崩溃、封号等。</li></ul><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul><li>已经 Root 的安卓手机（至少一台，安卓8 以上）</li><li>Neo Backup <a href="https://github.com/NeoApplications/Neo-Backup">Github</a> <a href="https://f-droid.org/zh_Hans/packages/com.machiav3lli.backup/">F-Droid</a></li></ul><ol><li>下载并安装 Neo Backup；</li><li>打开 Neo Backup，授予权限（MIUI、HyperOS 用户请关闭 MIUI优化）；</li><li>选择备份文件夹，<code>不要选择主存储目录或“Download”文件夹，为你的备份创建一个独立的文件夹</code>；</li><li>在主页选择你要操作的应用；</li><li>Enjoy！</li></ol><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>点击右上角齿轮图标进入设置，这里介绍几个（我认为）比较重要的设置。</p><h3 id="使用会话安装器"><a href="#使用会话安装器" class="headerlink" title="使用会话安装器"></a>使用会话安装器</h3><p><img src="/img/Neo_Backup/%E4%BD%BF%E7%94%A8%E4%BC%9A%E8%AF%9D%E5%AE%89%E8%A3%85%E5%99%A8.png" alt="使用会话安装器"></p><p>建议 安卓8 - 安卓12 的系统取消该选项。</p><h3 id="启用特殊备份"><a href="#启用特殊备份" class="headerlink" title="启用特殊备份"></a>启用特殊备份</h3><p><img src="/img/Neo_Backup/%E5%90%AF%E7%94%A8%E7%89%B9%E6%AE%8A%E5%A4%87%E4%BB%BD.png" alt="启用特殊备份"></p><p>启用特殊备份后，可以备份系统配置，但是其他系统不一定能用。在主页点击刷新后，等待一会，系统配置会出现在应用列表中。</p><h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul><li>备份和恢复时<del>没有提示</del>进度提示不明显，具体情况请自行判断。（2024&#x2F;7&#x2F;5 更新：有提示，但不多，不显示通知的系统看不到。）</li><li>有时勾选还原 APK 选项后，会卡住或者报错。可以尝试在文件管理器里面直接安装 APK，取消勾选还原 APK 选项，仅还原数据。</li><li>有时会出现无法正常读取备份文件的情况，可以清除 Neo Backup 应用数据，重新选择备份文件夹。</li><li>MTP 服务不可靠，建议使用 ADB 来传输备份文件。</li></ul><h2 id="吐槽"><a href="#吐槽" class="headerlink" title="吐槽"></a>吐槽</h2><p>为什么应用内的图标会闪烁？</p>]]></content:encoded>
+      
+      
+      <category domain="https://savfile.github.io/categories/%E6%95%99%E7%A8%8B/">教程</category>
+      
+      
+      <category domain="https://savfile.github.io/tags/%E5%AE%89%E5%8D%93/">安卓</category>
+      
+      <category domain="https://savfile.github.io/tags/%E6%95%99%E7%A8%8B/">教程</category>
+      
+      <category domain="https://savfile.github.io/tags/%E5%A4%87%E4%BB%BD/">备份</category>
+      
+      <category domain="https://savfile.github.io/tags/%E5%90%90%E6%A7%BD/">吐槽</category>
+      
+      
+      <comments>https://savfile.github.io/posts/4dc1ea66.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>安卓模拟器安装 Kitsune Mask 通用教程</title>
