@@ -7,3 +7,4 @@
 - https://savfile.netlify.app
 - https://savfile.eu.org
 - https://savfile.pages.dev
+- https://savfile.us.kg
